@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script type="text/javascript">
+	function validateEmail(emailAddress){
+		 if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailAddress))  {
+		 	console.log(emailAddress);
+		 	var interests = document.getElementById("interests")
+		 	console.log(interests.options[interests.selectedIndex].text);
+		 	document.getElementById("warning").style.display = "none";
+		 }
+		 else{
+		 	document.getElementById("warning").value = "Please enter a valid email address";
+		 	document.getElementById("warning").style.display = "";
+		 }
+		}
+</script>
+<head>
+	<style type="text/css">	
+		html *
+		{
+		   font-family: Helvetica !important;
+		}
+		body {
+		    background-color: #000639;
+		}
+		.main-div{
+		  max-width: 500px;
+		  margin: auto;
+		}
+		hr{
+		  color: #7AB55C;
+		  background-color: #7AB55C;
+		  border: none;
+		  width: 5%;
+		  height: 7px;
+		}
+		.inline-div{
+		  overflow: hidden;
+		}
+		.inline-left{
+		  width: 60%;
+		  float: left;
+		  margin-right: 7.5%;
+		}
+		.inline-right{
+		  overflow: hidden;
+		}
+		.header1{
+		  text-align:left;
+		  font-weight: bold;
+		  color: #FFFFFF;
+		  font-size:24px;
+		}
+		.header2{
+		  text-align:left;
+		  color: #FFFFFF;
+		  font-size:16px;
+		}
+		.email
+		{
+		  border-radius: 5px;
+		  border:solid 1px black;
+		  padding:10px;
+		  font-size:16px;
+		  position: relative;
+		  width: 100%;
+		}
+		.interests
+		{
+		  padding:9px;
+		  color: #7B7B7B;    
+		  border-radius: 5px;
+		  border:solid 1px black;
+		  font-size:16px;
+		  position: relative;
+		  width: 100%;
+		}
+		.sign-up
+		{
+		  background-color: #5c6ac4;    
+		  color: #FFFFFF;
+		  border-radius: 5px;
+		  border:solid 1px black;
+		  padding:10px;
+		  font-size:16px;
+		  font-weight: bold;
+		  position: relative;
+		  width: 100%;
+		}
+		.unsubscribe
+		{
+		  position:absolute;
+		  left:50%;
+		  margin-right: -50%;
+		  bottom:0%;
+		  transform: translate(-50%, -50%);
+		  color: #FFFFFF;
+		}
+		.warning
+		{
+			font-size:16px;
+			color: #C23628;
+		}
+		.visible-warning
+		{
+			font-size:16px;
+			color: #C23628;
+		}
+	</style>
+</head>
+<body>
+<div class="main-div">
+  <p class="header1">Stay up to date with ecommerce trends with Shopify's newsletter</p>
+  <hr align="left">
+  <br>
+  <p class="header2">Subscribe for free marketing tips</p>
+  <div class="inline-div">
+  <div class="inline-left">
+    <input id="email" type="text" ng-model="name" placeholder="Email Address" class="email" align="left">
+  </div>
+  <div class="inline-right">
+    <select class="interests" id="interests">
+          <option value="" disabled selected hidden>Interested In...</option>
+          <option value="0">American Consumer Behaviours</option>
+          <option value="1">Canadian Consumer Behaviours</option>
+          <option value="2">World Stock Patterns</option>
+    </select>
+  </div>
+  <p class="warning" id="warning" style="display: none;">Please enter a valid email address</p>
+  </div>
+  <br>
+  <button class="sign-up" onclick="validateEmail(document.getElementById('email').value)">Sign Up Now!</button>
+  <br>
+  <a href="" class="unsubscribe">Unsubscribe</a>
+</div>
+</body>
+</html> 

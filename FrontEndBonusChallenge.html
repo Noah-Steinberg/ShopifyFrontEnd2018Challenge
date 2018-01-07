@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script type="text/javascript">
+	function validateEmailPass(email, pass, interests){	
+		 if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))  {
+		 	document.getElementById("warning").innerHTML = "Please enter a valid email address";
+		 	document.getElementById("warning").style.display = "";
+		 }
+		 else if (interests==="Interested In..."){
+		 	document.getElementById("warning").innerHTML = "Please select an interest";
+		 	document.getElementById("warning").style.display = "";
+		 }
+		 else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{0,}$/.test(pass)){
+		 	document.getElementById("warning").innerHTML = "Please enter a password with a lowercase letter, an uppercase letter, and a number. (No symbols)";
+		 	document.getElementById("warning").style.display = "";
+		 }
+		 else{
+		 	document.getElementById("warning").innerHTML = "Subscription Succeeded!";
+		 	document.getElementById("warning").style.display = "";
+		 }
+		}
+	function validateEmail(email){
+		if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))  {
+		 	document.getElementById("warning").innerHTML = "Please enter a valid email address";
+		 	document.getElementById("warning").style.display = "";
+		 }
+		 else{
+		 	document.getElementById("warning").innerHTML = "Unsubscription Succeeded!";
+		 	document.getElementById("warning").style.display = "";
+		 }
+	}
+</script>
+<head>
+	<style type="text/css">	
+		html *
+		{
+		   font-family: Helvetica !important;
+		}
+		body {
+		    background-color: #000639;
+		}
+		.main-div{
+		  max-width: 500px;
+		  margin: auto;
+		}
+		hr{
+		  color: #7AB55C;
+		  background-color: #7AB55C;
+		  border: none;
+		  width: 5%;
+		  height: 7px;
+		}
+		.inline-div{
+		  overflow: hidden;
+		}
+		.inline-left{
+		  width: 60%;
+		  float: left;
+		  margin-right: 7.5%;
+		}
+		.inline-right{
+		  overflow: hidden;
+		}
+		.header1{
+		  text-align:left;
+		  font-weight: bold;
+		  color: #FFFFFF;
+		  font-size:24px;
+		}
+		.header2{
+		  text-align:left;
+		  color: #FFFFFF;
+		  font-size:16px;
+		}
+		.input_text
+		{
+		  border-radius: 5px;
+		  border:solid 1px black;
+		  padding:10px;
+		  font-size:16px;
+		  position: relative;
+		  width: 100%;
+		}
+		.interests
+		{
+		  padding:9px;
+		  color: #7B7B7B;    
+		  border-radius: 5px;
+		  border:solid 1px black;
+		  font-size:16px;
+		  position: relative;
+		  width: 100%;
+		}
+		.sign-up
+		{
+		  background-color: #5c6ac4;    
+		  color: #FFFFFF;
+		  border-radius: 5px;
+		  border:solid 1px black;
+		  padding:10px;
+		  font-size:16px;
+		  font-weight: bold;
+		  position: relative;
+		  width: 100%;
+		}
+		.unsubscribe
+		{
+		  position:absolute;
+		  left:50%;
+		  margin-right: -50%;
+		  bottom:0%;
+		  transform: translate(-50%, -50%);
+		  color: #FFFFFF;
+		}
+		.warning
+		{
+			font-size:16px;
+			color: #C23628;
+		}
+		.visible-warning
+		{
+			font-size:16px;
+			color: #C23628;
+		}
+	</style>
+</head>
+<body>
+<div class="main-div">
+  <p class="header1">Stay up to date with ecommerce trends with Shopify's newsletter</p>
+  <hr align="left">
+  <br>
+  <p class="header2">Subscribe for free marketing tips</p>
+  <div class="inline-div">
+  <div class="inline-left">
+    <input id="email" type="text" placeholder="Email Address" class="input_text" align="left">
+  </div>
+  <div class="inline-left">
+  	<input id="password" type="password" placeholder="Password" class="input_text">
+  </div>
+  <div class="inline-left">
+    <select class="interests" id="interests">
+          <option value="" disabled selected hidden>Interested In...</option>
+          <option value="0">American Consumer Behaviours</option>
+          <option value="1">Canadian Consumer Behaviours</option>
+          <option value="2">World Stock Patterns</option>
+    </select>
+  </div>
+  </div>
+  <p class="warning" id="warning" style="display: none;">Please enter a valid email address</p>
+  <br>
+  <button class="sign-up" onclick="validateEmailPass(document.getElementById('email').value, document.getElementById('password').value,
+  	document.getElementById('interests').options[document.getElementById('interests').selectedIndex].text)">Sign Up Now!</button>
+  <br>
+  <a href="#" onclick="validateEmail(document.getElementById('email').value)" class="unsubscribe">Unsubscribe</a>
+</div>
+</body>
+</html> 
